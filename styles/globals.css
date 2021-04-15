@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer components {
+  .btn {
+    @apply bg-[#f8f9fa] p-3 rounded-md ring-gray-200 text-sm text-gray-800 hover:ring-1 hover:shadow-md focus:outline-none active:ring-gray-300;
+  }
+
   .link {
     @apply hover:underline cursor-pointer;
   }
