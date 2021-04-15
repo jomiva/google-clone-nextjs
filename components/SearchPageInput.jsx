@@ -17,6 +17,7 @@ const SearchPageInput = React.forwardRef((props, ref) => {
       <input
         className="flex-grow w-full focus:outline-none"
         ref={ref}
+        defaultValue={router.query.term}
         type="text"
       />
       <XIcon
