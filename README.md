@@ -1,34 +1,41 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+##**Google clone made with Nextjs SSR and TailwindCSS.  **
+You can see online demo here: https://google-clone-nextjs-jomiva.vercel.app/.
+Currently the online demo is using static data located at `./response.js` this is because google's api is limited to 100 request per day. If you'd to use google's api, you will need to provide your own api and context key and declare them at `./keys.js`: 
 
-## Getting Started
+    export const API_KEY = "yourkey";
+    export const CONTEXT_KEY = "yourkey";
 
-First, run the development server:
+Once you have provided your keys you will need to change the static fetch flag at `./pages/search.jsx`:
 
-```bash
-npm run dev
-# or
-yarn dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+    export async function getServerSideProps(context) {
+      const useStaticData = true; // <- change it to false if you want to consume google's api
+      const startIndex = context.query.start || 0;
+      const data = useStaticData
+        ? Response
+        : await fetch(
+            `https://www.googleapis.com/customsearch/v1?key=${API_KEY}&cx=${CONTEXT_KEY}&q=${context.query.term}&start=${startIndex}`
+          ).then((resp) => resp.json());
+      return {
+        props: {
+          results: data,
+        },
+      };
+    }
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+#Images 
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+#### Home PC
+[![Home - PC](https://res.cloudinary.com/dzu5vmaht/image/upload/v1618579820/DeepinScreenshot_select-area_20210416093005_bhscfp.png "Home - PC")](https://res.cloudinary.com/dzu5vmaht/image/upload/v1618579820/DeepinScreenshot_select-area_20210416093005_bhscfp.png "Home - PC")
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+#### Search PC
+[![Search - PC](https://res.cloudinary.com/dzu5vmaht/image/upload/v1618579850/DeepinScreenshot_select-area_20210416093040_bpps8q.png "Search - PC")](https://res.cloudinary.com/dzu5vmaht/image/upload/v1618579850/DeepinScreenshot_select-area_20210416093040_bpps8q.pnghttp:// "Search - PC")
 
-## Learn More
+#### Home Mobile
+[![Home - Mobile](https://res.cloudinary.com/dzu5vmaht/image/upload/v1618579928/DeepinScreenshot_select-area_20210416093151_ayjrpn.png "Home - Mobile")](https://res.cloudinary.com/dzu5vmaht/image/upload/v1618579928/DeepinScreenshot_select-area_20210416093151_ayjrpn.pnghttp:// "Home - Mobile")
 
-To learn more about Next.js, take a look at the following resources:
+#### Search Mobile
+[![Search - Mobile](https://res.cloudinary.com/dzu5vmaht/image/upload/v1618579930/DeepinScreenshot_select-area_20210416093138_djz99i.png "Search - Mobile")](http://https://res.cloudinary.com/dzu5vmaht/image/upload/v1618579930/DeepinScreenshot_select-area_20210416093138_djz99i.png "Search - Mobile")
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+That's all folks! Feel free to do all your changes you want to :)
+Made in Venezuela. @jomiva.
