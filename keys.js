@@ -1,3 +1,3 @@
-export const API_KEY = process.env.APIKEY;
+export const API_KEY = "";
 
-export const CONTEXT_KEY = process.env.CTXKEY;
+export const CONTEXT_KEY = "";

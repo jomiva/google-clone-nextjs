@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="grid w-full divide-y divide-gray-300 bg-gray-100 text-sm text-gray-500">
+    <footer className="grid w-full divide-y divide-gray-300 bg-gray-100 text-xs text-gray-500 mt-3">
       {/* First Grid */}
       <div className="px-8 py-3">
         <p>Venezuela</p>
@@ -8,7 +8,7 @@ export default function Footer() {
 
       {/* Second Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 px-8 py-3">
-        <div className="flex justify-center space-x-8 whitespace-nowrap md:justify-start">
+        <div className="hidden sm:inline-flex justify-center space-x-8 whitespace-nowrap md:justify-start">
           <p className="link">About</p>
           <p className="link">Advertising</p>
           <p className="link">Businesss</p>

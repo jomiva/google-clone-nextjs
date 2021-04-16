@@ -3,7 +3,7 @@ import { ViewGridIcon } from "@heroicons/react/solid";
 
 export default function Header() {
   return (
-    <header className="flex w-full p-5 justify-between text-sm text-gray-700">
+    <header className="hidden sm:inline-flex w-full p-5 justify-between text-sm text-gray-700">
       {/* Left  */}
       <div className="flex space-x-4 items-center">
         <p className="link">About</p>

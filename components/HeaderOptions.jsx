@@ -22,7 +22,7 @@ export default function HeaderOptions() {
       </div>
 
       {/* Right */}
-      <div className="flex space-x-4">
+      <div className="flex space-x-4 text-xs md:text-base">
         <p className="link">Settings</p>
         <p className="link">Tools</p>
       </div>
