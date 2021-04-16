@@ -1,4 +1,5 @@
-##**Google clone made with Nextjs SSR and TailwindCSS.  **
+# Google clone made with Nextjs SSR and TailwindCSS.
+
 You can see online demo here: https://google-clone-nextjs-jomiva.vercel.app/.
 Currently the online demo is using static data located at `./response.js` this is because google's api is limited to 100 request per day. If you'd to use google's api, you will need to provide your own api and context key and declare them at `./keys.js`: 
 
@@ -23,7 +24,7 @@ Once you have provided your keys you will need to change the static fetch flag a
       };
     }
 
-#Images 
+# Images 
 
 #### Home PC
 [![Home - PC](https://res.cloudinary.com/dzu5vmaht/image/upload/v1618579820/DeepinScreenshot_select-area_20210416093005_bhscfp.png "Home - PC")](https://res.cloudinary.com/dzu5vmaht/image/upload/v1618579820/DeepinScreenshot_select-area_20210416093005_bhscfp.png "Home - PC")
